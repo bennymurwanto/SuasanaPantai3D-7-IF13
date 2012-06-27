@@ -301,7 +301,7 @@ void draw_kapal_laut(){
 
 	glPushMatrix();
 	glRotatef(90, 0.4, 12.0, 0.0);
-	glTranslatef(klRot++/45, -1.0, 0.8);
+	glTranslatef(klRot++/45, -1.2, 0.8);
     glScalef(0.15, 0.15, 0.15);
 	glPushMatrix();//first
 	glRotatef(-180, 0.0f, 1.0f, 1.0f);
@@ -407,7 +407,8 @@ void display(void) {
    glBlendFunc(GL_ONE, GL_ONE);
    GLfloat kabut[4]={0.93,0.95,0.92,0.88};
    glFogfv(GL_FOG_COLOR, kabut);
-   glFogf(GL_FOG_DENSITY, 0.2f);
+   //ketebalan kabut
+   glFogf(GL_FOG_DENSITY, 0.08f);
    //glFogf(GL_FOG_START, 3.0f);
    //glFogf(GL_FOG_END, -3.0f);
    glFogi(GL_FOG_MODE, GL_EXP);
@@ -423,6 +424,35 @@ void display(void) {
    draw_mercusuar();
    draw_kapal_laut();
    draw_matahari();
+   
+   //pelampung
+   glPushMatrix();
+   glColor3f(1.0f, 0.0f, 0.0f);
+   glTranslatef (-4.25, -1.0, -10.0);
+   glScalef (0.1, 0.1, 0.1);
+   glutSolidSphere(1.0, 16, 16);
+   glPopMatrix();
+   
+   glPushMatrix();
+   glColor3f(1.0f, 0.0f, 0.0f);
+   glTranslatef (-10.0, -1.0, -10.0);
+   glScalef (0.1, 0.1, 0.1);
+   glutSolidSphere(1.0, 16, 16);
+   glPopMatrix();
+   
+   glPushMatrix();
+   glColor3f(1.0f, 0.0f, 0.0f);
+   glTranslatef (5.0, -1.0, -10.0);
+   glScalef (0.1, 0.1, 0.1);
+   glutSolidSphere(1.0, 16, 16);
+  
+   glPopMatrix();
+   glPushMatrix();
+   glColor3f(1.0f, 0.0f, 0.0f);
+   glTranslatef (10.0, -1.0, -10.0);
+   glScalef (0.1, 0.1, 0.1);
+   glutSolidSphere(1.0, 16, 16);
+   glPopMatrix();
    
    glutSwapBuffers();
    sudutputar -= 0.1f;
